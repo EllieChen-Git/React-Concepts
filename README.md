@@ -9,8 +9,7 @@
 
 - **Class components** are ES6 classes.
 
-- **Function components** are components that only contain a render method and don’t have their own state. They take props as input and return only what should be rendered.
-  (Refer to ComponentTypes.js for examples of function & class components)
+- **Function components** are components that only contain a render method and don’t have their own state. They take props as input and return only what should be rendered. <i>(Refer to ComponentTypes.js for examples of function & class components)</i>
 
 |                                     | :bulb: Function Components :bulb:                                                                                                                             | :cactus: Class Components :cactus:                      |
 | :---------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------ |
@@ -28,6 +27,30 @@
 ---
 
 #### Props vs States
+
+1. **Passed to components vs Initialised within components:**
+
+- Props are a component's configuration that can be passed from parent to child component (similar to function parameters)
+- States are directly initialised and managed within the component (similar to variables declared within a function). State is private and fully controlled by the component, and it cannot be accessed/modified outside of the component.
+
+2. **Static data vs dynamic data:**
+
+- If you are building a static version of app, use props all the time and don’t use state.
+- State is reserved only for interactivity (i.e. data that changes over time).
+
+|                                                       | :bulb: Props :bulb: | :cactus: States :cactus: |
+| :---------------------------------------------------: | :-----------------: | :----------------------: |
+|                                                       |      external       |         internal         |
+|               plain JavaScript objects                |         Yes         |           Yes            |
+| hold information that influences the output of render |         Yes         |           Yes            |
+|     Can get initial value from parent Component?      |         Yes         |           Yes            |
+|          Can be changed by parent Component?          |         Yes         |            No            |
+|       Can set default values inside Component?        |         Yes         |           Yes            |
+|             Can change inside Component?              |         No          |           Yes            |
+|      Can set initial value for child Components?      |         Yes         |           Yes            |
+|            Can change in child Components?            |         Yes         |            No            |
+
+**Conclusion**: If a component needs to alter one of its attributes at some point in time, that attribute should be part of its state, otherwise it should just be a prop for that Component.
 
 ---
 
@@ -52,6 +75,11 @@
 <!-- (ref tic-tac-toe) -->
 
 ---
+
+# References:
+
+- React docs: https://reactjs.org/
+- React Guide: https://github.com/uberVU/react-guide/blob/master/props-vs-state.md
 
 <!-- https://gist.github.com/rxaviers/7360908 -->
 
