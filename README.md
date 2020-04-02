@@ -9,7 +9,9 @@
 
 - **Class components** are ES6 classes.
 
-- **Function components** are components that only contain a render method and don’t have their own state. They take props as input and return only what should be rendered. <i>(Refer to ComponentTypes.js for examples of function & class components)</i>
+- **Function components** are components that only contain a render method and don’t have their own state. They take props as input and return only what should be rendered.
+
+<i>(Refer to ComponentTypes.js: Examples of Function & Class components)</i>
 
 |                                     | :bulb: Function Components :bulb:                                                                                                                             | :cactus: Class Components :cactus:                      |
 | :---------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------ |
@@ -22,25 +24,25 @@
 | React Hooks </br> (from React 16.8) | Yes                                                                                                                                                           | N/A                                                     |
 | Benefits                            | 1. Easier to read & write (less code) </br> 2. Easier to test & debug (because they are plain JavaScript functions)</br> 3. Performance boost in future </br> |
 
-**Conclusion**: Functional components are preferable and should be used wherever possible(especially after the introduction of React Hooks from React 16.8). Only convert function components to class components when needed.
+**Conclusion**: Functional components are preferable and should be used wherever possible (especially after the introduction of React Hooks from React 16.8). Only convert function components to class components when needed.
 
 ---
 
 #### Props vs States
 
-1. **Passed to components vs Initialised within components:**
+**1. Passed to components vs Initialised within components:**
 
-- Props are a component's configuration that can be passed from parent to child component (similar to function parameters)
+- Props are a component's configuration that can be passed from parent to child component (similar to function parameters).
 - States are directly initialised and managed within the component (similar to variables declared within a function). State is private and fully controlled by the component, and it cannot be accessed/modified outside of the component.
 
-2. **Static data vs dynamic data:**
+**2. Static data vs dynamic data:**
 
 - If you are building a static version of app, use props all the time and don’t use state.
 - State is reserved only for interactivity (i.e. data that changes over time).
 
 |                                                       | :bulb: Props :bulb: | :cactus: States :cactus: |
 | :---------------------------------------------------: | :-----------------: | :----------------------: |
-|                                                       |      external       |         internal         |
+|                        Source                         |      external       |         internal         |
 |               plain JavaScript objects                |         Yes         |           Yes            |
 | hold information that influences the output of render |         Yes         |           Yes            |
 |     Can get initial value from parent Component?      |         Yes         |           Yes            |
@@ -56,19 +58,50 @@
 
 #### Lifecycle methods vs React Hooks
 
+![#](./public/lifecycle.JPG)
+
+- **Lifecycle methods**: componentDidMount, componentDidUpdate, and componentWillUnmount (other lifecycle methods will be deprecated in React 17).
+
+- **React Hooks**: useEffect, useState & others.
+
+| :bulb: Class - Lifecycle Methods :bulb: | :cactus: Function - React Hooks (~ 16.8) :cactus: |
+| :-------------------------------------: | :-----------------------------------------------: |
+|                                         |                                                   |
+|            componentDidMount            |               useEffect(()=>{}, [])               |
+|           componentDidUpdate            |                 useEffect(()=>{})                 |
+|          componentWillUnmount           |      useEffect(() => {return () => {} }, [])      |
+|              Constructor()              |                    useState()                     |
+|                  state                  |                    useState()                     |
+
+- **Benefits of using React Hooks**
+
+  **1. Less code**: In class components, any setup in 'componentDidMount' would have 'componentWillUnmount' in order to clean up. Using Hooks, there is no need to do this since the mounting and unmounting logic is enclosed inside the same function scope.
+
+  **2. Better future React optimisations**
+
+<i>(Refer to 'LifecycleToHooks' folder for code snippets & explanation)</i>
+
+---
+
+#### How to convert from Function to Class Components
+
+1. Create an ES6 class, with the same name, that extends React.Component.
+2. Add a single empty method to it called render().
+3. Move the body of the function into the render() method.
+4. Replace props with this.props in the render() body.
+5. Delete the remaining empty function declaration.
+
+<i>(Refer to ClassToFunction.js: How to convert from class to function component)</i>
+
 ---
 
 <!-- --- -->
 
-# Future Topics
+## Future Topics
 
 #### Controlled vs Uncontrolled Elements
 
-<!-- --- 考慮不寫 -->
-
-#### How to convert from Function to Class Components
-
-#### Why we don't mutate states in React
+#### Why we don't mutate states (directly) in React
 
 #### Why do we need to lift the state & How to do it
 
@@ -76,15 +109,11 @@
 
 ---
 
-# References:
+##### References:
 
 - React docs: https://reactjs.org/
 - React Guide: https://github.com/uberVU/react-guide/blob/master/props-vs-state.md
-
-<!-- https://gist.github.com/rxaviers/7360908 -->
+- React lifecycle methods diagram: http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
+- Replacing Component Lifecycle Methods with React Hooks: https://blog.carbonfive.com/2019/10/15/replacing-component-lifecycle-methods-with-react-hooks/
 
 ©2020 Ellie Chen - All Rights Reserved.
-
-<!-- ```javascript
-
-``` -->
