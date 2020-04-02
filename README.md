@@ -1,68 +1,82 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# React-Concepts
 
-## Available Scripts
+- A place to store my understanding and note of React :sunny:
+  <!-- Try to make it simple & only contain essential message -->
 
-In the project directory, you can run:
+---
 
-### `npm start`
+#### Function vs Class Components (& When to Use)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Function components are components that only contain a render method and don’t have their own state. They take props as input and return only what should be rendered.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+<!-- ```javascript
+// Function components in arrow functions
+const Welcome = props => {
+  return <h1>Hello, {props.name}</h1>;
+};
 
-### `npm test`
+// Function components can also be created with the regular function keyword.
+function Welcome(props) {
+  return <h1>Hello, {props.name}</h1>;
+}
+``` -->
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Class components are ES6 classes.
 
-### `npm run build`
+<!-- ```javascript
+class Welcome extends React.Component {
+  render() {
+    return <h1>Hello, {this.props.name}</h1>;
+  }
+}
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+``` -->
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+|                                     | :bulb: Function Components :bulb:                                                                                                                              | :cactus: Class Components :cactus:                      |
+| :---------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------ |
+| Alias                               | 'dumb' or 'stateless' (only props, no state) components                                                                                                        | 'smart' or 'stateful' (both props and state) components |
+| Main purpose                        | Presentational component to render UI                                                                                                                          | Dynamic component to implement logic and state          |
+| Can accept and use props            | Yes                                                                                                                                                            | Yes                                                     |
+| Has its own local state?            | No </br>(but can use React Hooks to manage state)                                                                                                              | Yes                                                     |
+| Lifecycle methods                   | N/A </br> (but can use React Hooks)                                                                                                                            | Yes                                                     |
+| render() method                     | No need                                                                                                                                                        | Required                                                |
+| React Hooks </br> (from React 16.8) | Yes                                                                                                                                                            | N/A                                                     |
+| Benefits                            | 1. Easier to read & write (less code) </br> 2. Easier to test (because they are plain JavaScript functions)</br> 3. May be a performance boost in future </br> |
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+**Conclusion**: Functional components are more preferable and should be used wherever possible(especially after the induction of React Hooks on React 16.8). Only change your function components to class components
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+# Future Topics
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+#### Why choose React?
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+#### Controlled vs Uncontrolled Elements
 
-## Learn More
+<!-- --- -->
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+#### Why we don't mutate states in React
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+<!-- --- -->
 
-### Code Splitting
+#### Props vs States
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+<!-- --- -->
 
-### Analyzing the Bundle Size
+#### How to convert from Function to Class Components
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+#### Lifecycle methods vs React Hooks
 
-### Making a Progressive Web App
+#### Why do we need to lift the state & How to do it
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+---
 
-### Advanced Configuration
+<!-- https://gist.github.com/rxaviers/7360908 -->
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+©2020 Ellie Chen - All Rights Reserved.
 
-### Deployment
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+```
