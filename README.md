@@ -5,7 +5,7 @@
 
 ---
 
-#### Function vs Class Components (& When to use them)
+## Function vs Class Components (& When to use them)
 
 - **Class components** are ES6 classes.
 
@@ -28,7 +28,7 @@
 
 ---
 
-#### Props vs States
+## Props vs States
 
 **1. Passed to components vs Initialised within components:**
 
@@ -56,9 +56,9 @@
 
 ---
 
-#### Lifecycle methods vs React Hooks
+## Lifecycle methods vs React Hooks
 
-![#](./public/lifecycle.JPG)
+![Lifecycle](./public/lifecycle.jpg)
 
 - **Lifecycle methods**: componentDidMount, componentDidUpdate, and componentWillUnmount (other lifecycle methods will be deprecated in React 17).
 
@@ -83,7 +83,7 @@
 
 ---
 
-#### How to convert from Function to Class Components
+## How to convert from Function to Class Components
 
 1. Create an ES6 class, with the same name, that extends React.Component.
 2. Add a single empty method to it called render().
@@ -109,7 +109,7 @@
 
 ---
 
-##### References:
+## References:
 
 - React docs: https://reactjs.org/
 - React Guide: https://github.com/uberVU/react-guide/blob/master/props-vs-state.md
