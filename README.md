@@ -5,13 +5,25 @@
 
 ---
 
+## React vs Angular vs Vue
+
+|                         | :bulb: React :bulb: |    :cactus: Angular :cactus:     | :fire: Vue :fire: |
+| :---------------------: | :-----------------: | :------------------------------: | :---------------: |
+|    **Released Year**    |        2013         | 2010 AngularJS</br>2016 Angular2 |       2014        |
+|   **Latest Version**    | 2018.11 React 16.X  |        2020.02 Angular 9         |  2019.02 Vue 2.6  |
+|    **Official Site**    |     reactjs.org     |            angular.io            |     vuejs.org     |
+| **Package Type - Size** |   Library - 100KB   |        Framework - 500KB         | Framework - 80KB  |
+|    **Maintained by**    |      Facebook       |              Google              | Independent team  |
+| **Preferred Languages** |   JavaScript, JSX   |            TypeScript            |                   |
+|  **Biggest Strength**   |     Flexibility     |         Complete package         |    Simplicity     |
+
+---
+
 ## Function vs Class Components (& When to use them)
 
 - **Class components** are ES6 classes.
 
 - **Function components** are components that only contain a render method and don’t have their own state. They take props as input and return only what should be rendered.
-
-<i>(Refer to ComponentTypes.js: Examples of Function & Class components)</i>
 
 |                                     | :bulb: Function Components :bulb:                                                                                                                             | :cactus: Class Components :cactus:                      |
 | :---------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------ |
@@ -25,6 +37,8 @@
 | Benefits                            | 1. Easier to read & write (less code) </br> 2. Easier to test & debug (because they are plain JavaScript functions)</br> 3. Performance boost in future </br> |
 
 **Conclusion**: Functional components are preferable and should be used wherever possible (especially after the introduction of React Hooks from React 16.8). Only convert function components to class components when needed.
+
+<i>(Refer to src/ComponentTypes.js: Examples of Function & Class components)</i>
 
 ---
 
@@ -79,7 +93,7 @@
 
   **2. Better future React optimisations**
 
-<i>(Refer to 'LifecycleToHooks' folder for code snippets & explanation)</i>
+<i>(Refer to src/'LifecycleToHooks' folder for code snippets & explanation)</i>
 
 ---
 
@@ -91,7 +105,7 @@
 4. Replace props with this.props in the render() body.
 5. Delete the remaining empty function declaration.
 
-<i>(Refer to ClassToFunction.js: How to convert from class to function component)</i>
+<i>(Refer to src/ClassToFunction.js: How to convert from class to function component)</i>
 
 ---
 
@@ -105,7 +119,116 @@
 
 #### Why do we need to lift the state & How to do it
 
-<!-- (ref tic-tac-toe) -->
+<!-- - Class components, State Management, Passing Props (from parent to child)
+
+0. Passing props
+
+- When React sees an element representing a user-defined component, it passes JSX attributes and children to this component as a single object. We call this object “props”.
+
+```javascript
+const App = () => {
+  return <Playground name="Mickey Mouse" />;
+};
+```
+
+```javascript
+const Playground = (props) => {
+  console.log(props); // {name: "Mickey Mouse"}
+  return <h1>The Playground of {props.name}!</h1>;
+};
+```
+
+1. [child] Value is saved in 'state' of child component
+
+```javascript
+// State: In React, components use state to 'remember' things.
+
+class Square extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: null,
+    };
+  }
+```
+
+2. [child] create an event handler (e.g. onClick) & use setState to store the change of value in 'state' of child component
+
+```javascript
+class Square extends React.Component {
+    // ...
+render() {
+    return (
+      <button
+        onClick={() => this.setState({value: 'X'})}
+      >
+        {this.state.value}
+      </button>
+    );
+  }
+```
+
+3. [child -> parent] Lift value from 'state' of child component up to 'props/ this.state' in parent component
+4. [parent -> child] pass 'props' from 'parent' component to 'child' component (now the value is saved in props in the 'parent')
+
+```javascript
+// Passing props: how information flows in React apps, from parents to children. The parent component can pass the state back down to the children by using props.
+
+class Board extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      squares: Array(9).fill(null),
+    };
+  }
+
+  renderSquare(i) {
+    return <Square value={this.state.squares[i]} />;
+  }
+  // ...
+```
+
+```javascript
+class Square extends React.Component {
+//...
+      <button >
+        {this.props.value}
+      </button>
+```
+
+5. [parent] Create an event handler 'onClick={() => this.handleClick(i)}' (also create handleClick(i) function)
+
+```javascript
+class Board extends React.Component {
+    // ...
+  handleClick(i) {
+    const squares = this.state.squares.slice();
+    squares[i] = 'X';
+    this.setState({squares: squares});
+  }
+
+  renderSquare(i) {
+    return (
+      <Square
+        value={this.state.squares[i]}
+        onClick={() => this.handleClick(i)}
+      />
+      // In React, it’s conventional to use on[Event] names for props which represent events and handle[Event] for the methods which handle the events.
+```
+
+6. [parent -> child]: pass 'props/ onClick()' to 'child' component 'onClick={() => this.props.onClick()' (child components are now controlled components. The parent has full control over them.)
+
+```javascript
+class Square extends React.Component {
+  render() {
+    return (
+      <button className="square" onClick={() => this.props.onClick()}>
+        {this.props.value}
+      </button>
+    );
+  }
+}
+``` -->
 
 ---
 
