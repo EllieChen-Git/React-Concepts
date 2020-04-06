@@ -2,20 +2,21 @@
 
 - Repo to share my understanding and note of React :sunny:
   <!-- Try to make it simple & only contain essential message -->
+  <!-- Focus on simple comparison tables & conclusions only (not too much description)  -->
 
 ---
 
 ## React vs Angular vs Vue
 
-|                         | :bulb: React :bulb: |    :cactus: Angular :cactus:     | :fire: Vue :fire: |
-| :---------------------: | :-----------------: | :------------------------------: | :---------------: |
-|    **Released Year**    |        2013         | 2010 AngularJS</br>2016 Angular2 |       2014        |
-|   **Latest Version**    | 2018.11 React 16.X  |        2020.02 Angular 9         |  2019.02 Vue 2.6  |
-|    **Official Site**    |     reactjs.org     |            angular.io            |     vuejs.org     |
-| **Package Type - Size** |   Library - 100KB   |        Framework - 500KB         | Framework - 80KB  |
-|    **Maintained by**    |      Facebook       |              Google              | Independent team  |
-| **Preferred Languages** |   JavaScript, JSX   |            TypeScript            |                   |
-|  **Biggest Strength**   |     Flexibility     |         Complete package         |    Simplicity     |
+|                         |         :bulb: React :bulb:         |     :cactus: Angular :cactus:     |        :fire: Vue :fire:        |
+| :---------------------: | :---------------------------------: | :-------------------------------: | :-----------------------------: |
+|    **Released Year**    |                2013                 | 2010 AngularJS</br>2016 Angular2  |              2014               |
+|    **Maintained by**    |              Facebook               |              Google               |        Independent team         |
+|    **Official Site**    | [Reactjs.org](https://reactjs.org/) | [Angular.io](https://angular.io/) | [Vuejs.org](https://vuejs.org/) |
+| **Package Type - Size** |           Library - 100KB           |         Framework - 500KB         |        Framework - 80KB         |
+| **Preferred Languages** |           JavaScript, JSX           |            TypeScript             |                                 |
+|  **Biggest Strength**   |             Flexibility             |         Complete package          |           Simplicity            |
+|   **Latest Version**    |         2018.11 React 16.X          |         2020.02 Angular 9         |         2019.02 Vue 2.6         |
 
 ---
 
@@ -25,16 +26,16 @@
 
 - **Function components** are components that only contain a render method and don’t have their own state. They take props as input and return only what should be rendered.
 
-|                                     | :bulb: Function Components :bulb:                                                                                                                             | :cactus: Class Components :cactus:                      |
-| :---------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------ | :------------------------------------------------------ |
-| Alias                               | 'dumb' or 'stateless' (only props, no state) components                                                                                                       | 'smart' or 'stateful' (both props and state) components |
-| Main purpose                        | Presentational component to render UI                                                                                                                         | Dynamic component to implement logic and state          |
-| Can accept and use props            | Yes                                                                                                                                                           | Yes                                                     |
-| Has its own local state?            | No </br>(but can use React Hooks to manage state)                                                                                                             | Yes                                                     |
-| Lifecycle methods                   | N/A </br> (but can use React Hooks to achieve similar effects)                                                                                                | Yes                                                     |
-| render() method                     | No need                                                                                                                                                       | Required                                                |
-| React Hooks </br> (from React 16.8) | Yes                                                                                                                                                           | N/A                                                     |
-| Benefits                            | 1. Easier to read & write (less code) </br> 2. Easier to test & debug (because they are plain JavaScript functions)</br> 3. Performance boost in future </br> |
+|                                     | :bulb: Function Components :bulb:                                                                                                                                      | :cactus: Class Components :cactus:                      |
+| :---------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------ |
+| Alias                               | 'dumb' or 'stateless' (only props, no state) components                                                                                                                | 'smart' or 'stateful' (both props and state) components |
+| Main purpose                        | Presentational component to render UI                                                                                                                                  | Dynamic component to implement logic and state          |
+| Can accept and use props            | Yes                                                                                                                                                                    | Yes                                                     |
+| Has its own local state?            | No </br>(but can use React Hooks to manage state)                                                                                                                      | Yes                                                     |
+| Lifecycle methods                   | N/A </br> (but can use React Hooks to achieve)                                                                                                                         | Yes                                                     |
+| render() method                     | No need                                                                                                                                                                | Required                                                |
+| React Hooks </br> (from React 16.8) | Yes                                                                                                                                                                    | N/A                                                     |
+| Benefits                            | 1. Easier to read & write (less code) </br> 2. Easier to test & debug (because they are plain JavaScript functions)</br> 3. Likely a performance boost in future </br> |
 
 **Conclusion**: Functional components are preferable and should be used wherever possible (especially after the introduction of React Hooks from React 16.8). Only convert function components to class components when needed.
 
@@ -234,9 +235,9 @@ class Square extends React.Component {
 
 ## References:
 
-- React docs: https://reactjs.org/
-- React Guide: https://github.com/uberVU/react-guide/blob/master/props-vs-state.md
-- React lifecycle methods diagram: http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/
-- Replacing Component Lifecycle Methods with React Hooks: https://blog.carbonfive.com/2019/10/15/replacing-component-lifecycle-methods-with-react-hooks/
+- [Official React Documentation](https://reactjs.org/)
+- [React Guide](https://github.com/uberVU/react-guide/blob/master/props-vs-state.md)
+- [React Lifecycle Methods Diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
+- [Replacing Component Lifecycle Methods with React Hooks](https://blog.carbonfive.com/2019/10/15/replacing-component-lifecycle-methods-with-react-hooks/)
 
 ©2020 Ellie Chen - All Rights Reserved.
