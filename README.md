@@ -1,6 +1,6 @@
 # React-Concepts
 
-- Repo to share my understanding and note of React :sunny:
+- Repo to share my understanding and note of React 🌻
   <!-- Try to make it simple & only contain essential message -->
   <!-- Focus on simple comparison tables & conclusions only (not too much description)  -->
 
@@ -28,18 +28,18 @@
 
 |                                     | :bulb: Function Components :bulb:                                                                                                                                      | :cactus: Class Components :cactus:                      |
 | :---------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :------------------------------------------------------ |
-| Alias                               | 'dumb' or 'stateless' (only props, no state) components                                                                                                                | 'smart' or 'stateful' (both props and state) components |
+| Alias                               | 'Dumb' or 'stateless' components (only props, no state)                                                                                                                | 'Smart' or 'stateful' components (both props and state) |
 | Main purpose                        | Presentational component to render UI                                                                                                                                  | Dynamic component to implement logic and state          |
 | Can accept and use props            | Yes                                                                                                                                                                    | Yes                                                     |
 | Has its own local state?            | No </br>(but can use React Hooks to manage state)                                                                                                                      | Yes                                                     |
-| Lifecycle methods                   | N/A </br> (but can use React Hooks to achieve)                                                                                                                         | Yes                                                     |
+| Lifecycle methods                   | N/A </br> (but can use React Hooks to achieve same effects)                                                                                                            | Yes                                                     |
 | render() method                     | No need                                                                                                                                                                | Required                                                |
 | React Hooks </br> (from React 16.8) | Yes                                                                                                                                                                    | N/A                                                     |
 | Benefits                            | 1. Easier to read & write (less code) </br> 2. Easier to test & debug (because they are plain JavaScript functions)</br> 3. Likely a performance boost in future </br> |
 
 **Conclusion**: Functional components are preferable and should be used wherever possible (especially after the introduction of React Hooks from React 16.8). Only convert function components to class components when needed.
 
-<i>(Refer to src/ComponentTypes.js: Examples of Function & Class components)</i>
+<i>(Refer to <u>src/ComponentTypes.js</u>: Examples of Function & Class components)</i>
 
 ---
 
@@ -48,7 +48,7 @@
 **1. Passed to components vs Initialised within components:**
 
 - Props are a component's configuration that can be passed from parent to child component (similar to function parameters).
-- States are directly initialised and managed within the component (similar to variables declared within a function). State is private and fully controlled by the component, and it cannot be accessed/modified outside of the component.
+- States are directly initialised and managed within the component (similar to variables declared within a function). State is private and fully controlled by the component, and it cannot be accessed/modified outside the component.
 
 **2. Static data vs dynamic data:**
 
@@ -67,7 +67,7 @@
 |      Can set initial value for child Components?      |         Yes         |           Yes            |
 |            Can change in child Components?            |         Yes         |            No            |
 
-**Conclusion**: If a component needs to alter one of its attributes at some point in time, that attribute should be part of its state, otherwise it should just be a prop for that Component.
+**Conclusion**: If a component needs to alter one of its attributes at some point in time, then that attribute should be part of its state. Otherwise, it should just be a prop for that component.
 
 ---
 
@@ -75,26 +75,27 @@
 
 ![Lifecycle](./public/lifecycle.jpg)
 
-- **Lifecycle methods**: componentDidMount, componentDidUpdate, and componentWillUnmount (other lifecycle methods will be deprecated in React 17).
+Source: [React Lifecycle Methods Diagram](http://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/)
 
-- **React Hooks**: useEffect, useState & others.
+- **Lifecycle methods**: componentDidMount, componentDidUpdate and componentWillUnmount (Other lifecycle methods will be deprecated in React 17).
 
-| :bulb: Class - Lifecycle Methods :bulb: | :cactus: Function - React Hooks (~ 16.8) :cactus: |
-| :-------------------------------------: | :-----------------------------------------------: |
-|                                         |                                                   |
-|            componentDidMount            |               useEffect(()=>{}, [])               |
-|           componentDidUpdate            |                 useEffect(()=>{})                 |
-|          componentWillUnmount           |      useEffect(() => {return () => {} }, [])      |
-|              Constructor()              |                    useState()                     |
-|                  state                  |                    useState()                     |
+- **React Hooks**: useEffect, useState etc.
+
+| :bulb: Class - Lifecycle Methods :bulb: | :cactus: Function - React Hooks</br>(from React 16.8) :cactus: |
+| :-------------------------------------: | :------------------------------------------------------------: |
+|            componentDidMount            |                     useEffect(()=>{}, [])                      |
+|           componentDidUpdate            |                       useEffect(()=>{})                        |
+|          componentWillUnmount           |            useEffect(() => {return () => {} }, [])             |
+|              Constructor()              |                           useState()                           |
+|                  state                  |                           useState()                           |
 
 - **Benefits of using React Hooks**
 
-  **1. Less code**: In class components, any setup in 'componentDidMount' would have 'componentWillUnmount' in order to clean up. Using Hooks, there is no need to do this since the mounting and unmounting logic is enclosed inside the same function scope.
+  **1. Less code**: In class components, any setup in 'componentDidMount' would have 'componentWillUnmount' in order to clean up. When using Hooks, there is no need to do this since the mounting and unmounting logic is enclosed inside the same function scope.
 
-  **2. Better future React optimisations**
+  **2. Better future React performance optimisations**
 
-<i>(Refer to src/'LifecycleToHooks' folder for code snippets & explanation)</i>
+<i>(Refer to <u>src/LifecycleToHooks folder</u>: for code snippets & explanation)</i>
 
 ---
 
@@ -106,7 +107,7 @@
 4. Replace props with this.props in the render() body.
 5. Delete the remaining empty function declaration.
 
-<i>(Refer to src/ClassToFunction.js: How to convert from class to function component)</i>
+<i>(Refer to <u>src/ClassToFunction.js</u>: How to convert from class to function component)</i>
 
 ---
 
@@ -233,7 +234,7 @@ class Square extends React.Component {
 
 ---
 
-## References:
+## References
 
 - [Official React Documentation](https://reactjs.org/)
 - [React Guide](https://github.com/uberVU/react-guide/blob/master/props-vs-state.md)
