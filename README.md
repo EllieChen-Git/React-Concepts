@@ -8,6 +8,10 @@
 
 ## React vs Angular vs Vue
 
+- **What is React?** React is a JavaScript library helps you to build reusable UI components that manage the states and hold the user-provided properties.
+
+- **What is Angular?** Angular is a JavaScript framework that comes with expressive HTML, powerful data-binding and built-in backend integration. It is also modular by design.
+
 |                         |         :bulb: React :bulb:         |     :cactus: Angular :cactus:     |        :fire: Vue :fire:        |
 | :---------------------: | :---------------------------------: | :-------------------------------: | :-----------------------------: |
 |    **Released Year**    |                2013                 | 2010 AngularJS</br>2016 Angular2  |              2014               |
@@ -52,7 +56,7 @@
 
 **2. Static data vs dynamic data:**
 
-- If you are building a static version of app, use props all the time and don’t use state.
+- If you are building a static version of an app, use props all the time and don’t use state.
 - State is reserved only for interactivity (i.e. data that changes over time).
 
 |                                                       | :bulb: Props :bulb: | :cactus: States :cactus: |
@@ -80,13 +84,14 @@ Source: [React Lifecycle Methods Diagram](http://projects.wojtekmaj.pl/react-lif
 - **Lifecycle methods**: componentDidMount, componentDidUpdate and componentWillUnmount (Other lifecycle methods will be deprecated in React 17).
 
 - **React Hooks**: useEffect, useState etc.
+  - [useState](https://reactjs.org/docs/hooks-state.html): is a Hook that lets you add React state to function components
 
 | :bulb: Class - Lifecycle Methods :bulb: | :cactus: Function - React Hooks</br>(from React 16.8) :cactus: |
 | :-------------------------------------: | :------------------------------------------------------------: |
 |            componentDidMount            |                     useEffect(()=>{}, [])                      |
 |           componentDidUpdate            |                       useEffect(()=>{})                        |
 |          componentWillUnmount           |            useEffect(() => {return () => {} }, [])             |
-|              Constructor()              |                           useState()                           |
+|              Constructor()              |            useState()</br>useReducer (alternative)             |
 |                  state                  |                           useState()                           |
 
 - **Benefits of using React Hooks**
@@ -140,7 +145,7 @@ const Playground = (props) => {
 };
 ```
 
-1. [child] Value is saved in 'state' of child component
+1. [child] Value is saved in 'state' of the child component
 
 ```javascript
 // State: In React, components use state to 'remember' things.

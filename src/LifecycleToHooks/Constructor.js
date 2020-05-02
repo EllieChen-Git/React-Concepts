@@ -8,7 +8,7 @@ class Message extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      message: ''
+      message: '',
     };
     this.setMessage = this.setMessage.bind(this);
   }
@@ -30,9 +30,9 @@ import React, { useState } from 'react';
 function Message() {
   const [message, setMessage] = useState('');
   // React Hook: const [state, setState] = useState(initialState);
-  // message is the current state (of message)
+  // Declare a state variable 'message' to represent the 'current state' (of message)
   // setMessage is a function that update a piece of the state
-  // '' (empty string) is the initial state
+  // The only argument to the useState() Hook is the 'initial state' (i.e. '' (empty string) in this case)
   return (
     <main>
       <button onClick={() => setMessage('Hello World!')}>Click</button>
